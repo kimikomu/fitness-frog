@@ -49,13 +49,6 @@ namespace Treehouse.FitnessFrog.Controllers
 		public ActionResult Add(DateTime? date, int? activityId, double? duration,		// MVC converts string input from the form into the
 			 Entry.IntensityLevel? intensity, bool? exclude, string notes)			// appropriate types added as parameters to the method
 		{
-			ViewBag.Date = ModelState["Date"].Value.AttemptedValue;
-			ViewBag.ActivityId = ModelState["ActivityId"].Value.AttemptedValue;
-			ViewBag.Duration = ModelState["Duration"].Value.AttemptedValue;
-			ViewBag.Intensity = ModelState["Intensity"].Value.AttemptedValue;
-			ViewBag.Exclude = ModelState["Exclude"].Value.AttemptedValue;
-			ViewBag.Notes = ModelState["Notes"].Value.AttemptedValue;
-
 			return View();
 	    }
 
