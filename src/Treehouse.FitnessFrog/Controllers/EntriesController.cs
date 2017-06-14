@@ -41,15 +41,26 @@ namespace Treehouse.FitnessFrog.Controllers
 
 		[HttpGet]
         public ActionResult Add()
-        {
-			return View();
+		{
+			var entry = new Entry()
+			{
+				Date = DateTime.Today
+			};
+	        
+			return View(entry);
         }
 
 		[HttpPost]
-		public ActionResult Add(DateTime? date, int? activityId, double? duration,		// MVC converts string input from the form into the
-			 Entry.IntensityLevel? intensity, bool? exclude, string notes)			// appropriate types added as parameters to the method
+		public ActionResult Add(Entry entry)			// MVC's Model Binder binds the incoming form field values to the correct property from the Entry class
 		{
-			return View();
+			if (ModelState.IsValid)
+			{
+				_entriesRepository.AddEntry(entry);
+
+				// TODO Display Entries List Page
+			}
+
+			return View(entry);
 	    }
 
 		public ActionResult Edit(int? id)
