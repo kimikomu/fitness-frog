@@ -1,7 +1,7 @@
 ﻿@model Treehouse.FitnessFrog.Models.Entry
 
 @{
-    ViewBag.Title = "Add Entry";
+	ViewBag.Title = "Add Entry";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -21,7 +21,8 @@
 
 			<div class="form-group">
 				@Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-				@Html.TextBoxFor(m => m.ActivityId, new { @class = "form-control" })
+				@Html.DropDownListFor(m => m.ActivityId, 
+							(SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })		<!--ViewBag must be cast to SelectList bc it's a dynamic type. Empty string fulfills an overload that makes the first item empty in the dropdown list.-->
 
 			</div>
 
