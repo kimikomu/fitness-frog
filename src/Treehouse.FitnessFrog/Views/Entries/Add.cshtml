@@ -7,10 +7,11 @@
 
 <h2>@ViewBag.Title</h2>
 
-@Html.ValidationSummary("The following errors were found:", new { @class="alert alert-danger" })
 
 @using (Html.BeginForm())    // MVC's BeginForm helper method ensures that the closing form element is rendered after all of the form's content is rendered
 {
+	@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
 	<div class="row">
 
 		<div class="col-md-6">
